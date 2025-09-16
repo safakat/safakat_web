@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safakat Rahman - Python Developer</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Import Top Bar -->
+  <div id="topbar-container">
+    {% include "portfolio/topbar.html" %}
+  </div>
+  <section class="what-i-do">
+  <h2 class="section-title">__WhatIDo__</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon">💻</div>
+      <h3>_WebDevelopment_</h3>
+      <p>Building responsive, high-performance web apps.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⚙️</div>
+      <h3>_BackendAPIs_</h3>
+      <p>Creating scalable REST and GraphQL APIs.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>_DataVisualization_</h3>
+      <p>Transforming data into clear, interactive charts.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔒</div>
+      <h3>_Security_</h3>
+      <p>Implementing robust authentication & authorization.</p>
+    </div>
+    <div class="card">
+      <div class="icon">☁️</div>
+      <h3>_CloudDeployment_</h3>
+      <p>Deploying apps to AWS, Azure, or GCP.</p>
+    </div>
+  </div>
+</section>
+
+  </body>
+</html>

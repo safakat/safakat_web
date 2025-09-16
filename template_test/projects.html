@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      text-align: center;
+    }
+
+    .portfolio-header { margin-top: 40px; }
+    .portfolio-header p { color: #58a6ff; font-size: 16px; margin-bottom: 8px; }
+    .portfolio-header h1 { font-size: 42px; color: #fff; text-shadow: 0 0 12px #58a6ff; }
+
+    /* Grid */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 320px);
+      gap: 20px;
+      justify-content: center;
+      margin: 40px auto;
+    }
+
+    /* Card */
+    .card {
+      background-color: #161b22;
+      border: 2px solid #58a6ff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 0 12px #58a6ff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .card:hover { transform: scale(1.05); box-shadow: 0 0 20px #58a6ff, 0 0 40px #58a6ff; }
+    .card img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
+    .card .category { font-size: 14px; color: #58a6ff; font-weight: bold; margin-bottom: 6px; }
+    .card .title { font-size: 18px; font-weight: 600; color: #fff; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #161b22;
+      border: 2px solid #58a6ff;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      width: 80%;
+      max-width: 900px;
+      box-shadow: 0 0 20px #58a6ff;
+    }
+    .modal-left { flex: 1; display: flex; flex-direction: column; gap: 10px; margin-right: 20px; }
+    .modal-left img { width: 100%; border-radius: 8px; border: 2px solid #58a6ff; }
+    .modal-right { flex: 2; text-align: left; }
+    .modal-right h2 { color: #58a6ff; margin-bottom: 10px; }
+    .modal-right p { margin-bottom: 15px; line-height: 1.5; }
+    .close { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 30px; cursor: pointer; }
+
+    @media (max-width: 768px) {
+      .grid-container { grid-template-columns: 1fr; }
+      .modal-content { flex-direction: column; }
+      .modal-left { flex-direction: row; overflow-x: auto; margin-right: 0; }
+      .modal-left img { flex: 0 0 150px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="portfolio-header">
+    <p>VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK</p>
+    <h1>My Portfolio</h1>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid-container" id="portfolioGrid"></div>
+
+  <!-- Modal -->
+  <div id="portfolioModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <div class="modal-left" id="modalImages"></div>
+      <div class="modal-right">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <p><strong>Tech Stack:</strong> <span id="modalTech"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 🔹 Project Data
+    const projects = [
+      {
+        id: 1,
+        title: "Intelligence Pipe Profit Tracker",
+        category: "Web Application",
+        thumbnail: "project0.png",
+        description: "A web application to track profit in pipe manufacturing with live analytics and dashboards.",
+        tech: "Python, Django, MySQL",
+        images: ["project0.png", "project0.png", "project0.png", "project0.png"]
+      },
+      {
+        id: 2,
+        title: "Can Tracibility System",
+        category: "Windows Application",
+        thumbnail: "project0.png",
+        description: "A windows application for tracking cans across production lines, ensuring quality and traceability.",
+        tech: "C#, .NET, SQL Server",
+        images: ["project2a.png", "project2b.png", "project2c.png", "project2d.png"]
+      }
+      // Add more projects here...
+    ];
+
+    // 🔹 Render Cards
+    const grid = document.getElementById("portfolioGrid");
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${p.thumbnail}" alt="${p.title}">
+        <div class="category">${p.category}</div>
+        <div class="title">${p.title}</div>
+      `;
+      card.onclick = () => openModal(p);
+      grid.appendChild(card);
+    });
+
+    // 🔹 Open Modal with Project Data
+    function openModal(project) {
+      document.getElementById("modalTitle").innerText = project.title;
+      document.getElementById("modalDesc").innerText = project.description;
+      document.getElementById("modalTech").innerText = project.tech;
+
+      const modalImages = document.getElementById("modalImages");
+      modalImages.innerHTML = "";
+      project.images.forEach(img => {
+        const imageEl = document.createElement("img");
+        imageEl.src = img;
+        modalImages.appendChild(imageEl);
+      });
+
+      document.getElementById("portfolioModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("portfolioModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

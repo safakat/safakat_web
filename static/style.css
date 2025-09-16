@@ -1,0 +1,492 @@
+/* Global Reset */
+
+:root {
+  --background-color: #0d1117;
+  --card-bg: #181824; /* main card color */
+  --card-bg-alt: #202035; /* slightly different for these boxes */
+  --accent-color: #ff9800;
+  --shadow: 0 4px 10px rgba(0,0,0,0.3);
+  --photo-border-color: #58a6ff; /* your photo border neon green */
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+/* Top Bar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #58a6ff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #c9d1d9;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #58a6ff;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #58a6ff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #161b22;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Hero Section */
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(100vh - 60px);
+  padding: 40px 80px;
+  gap: 40px;
+}
+
+.intro-left {
+  max-width: 600px;
+}
+
+.small-title {
+  color: #8b949e;
+  font-size: 1.5rem;
+}
+
+.glow-text {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #58a6ff;
+}
+
+.cursor {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.bio {
+  font-size: 1.5rem;
+    color: #c9d1d9; /* Light gray for dark theme */
+    white-space: nowrap; /* Force single line */
+    /* overflow: hidden;    Hide any overflow */
+    /* text-overflow: ellipsis; Optional: add "..." if too long */
+}
+
+.connect {
+  margin-top: 20px;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #c9d1d9;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #58a6ff;
+  text-shadow: 0 0 5px #58a6ff;
+}
+
+/* Skills */
+.skills {
+  margin-top: 25px;
+}
+
+.skill-icons img {
+  width: 40px;
+  margin-right: 10px;
+  filter: none;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.skill-icons img:hover {
+  filter: grayscale(0%) drop-shadow(0 0 5px #58a6ff);
+  transform: scale(1.1);
+}
+
+/* Right side image */
+.intro-right .profile-frame {
+  border: 2px solid #58a6ff;
+  padding: 6px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+}
+
+.intro-right img {
+  max-width: 350px;
+  display: block;
+  border-radius: 6px;
+}
+
+.connect-skills {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px; /* spacing between connect and skills */
+    margin-top: 20px;
+}
+
+.connect h3, 
+.skills h3 {
+    color: #58a6ff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #c9d1d9;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #58a6ff;
+    text-shadow: 0 0 5px #58a6ff;
+}
+
+.skill-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.skill-icons img {
+    width: 40px;
+    filter: none;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.skill-icons img:hover {
+    filter: grayscale(0%) drop-shadow(0 0 5px #58a6ff);
+    transform: scale(1.1);
+}
+
+
+.hero-text h1 {
+    font-size: 2.2rem;
+    color: #58a6ff;
+    font-weight: bold;
+    white-space: nowrap; /* Keep single line */
+}
+
+.fixed-text {
+    color: #58a6ff;
+}
+
+#role {
+    border-right: 2px solid #58a6ff;
+    padding-right: 5px;
+    animation: blinkCursor 0.7s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from { border-right-color: #58a6ff; }
+    to { border-right-color: transparent; }
+}
+
+
+
+
+
+/* Mobile styles for tablets and smaller */
+@media (max-width: 768px) {
+  /* Topbar */
+  .topbar {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  /* Navigation menu (already collapsible) */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #161b22;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+    border-left: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+  }
+
+  /* Hero section */
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .intro-left {
+    max-width: 100%;
+  }
+
+  .glow-text {
+    font-size: 2rem;
+  }
+
+  .bio {
+    font-size: 1.1rem;
+    white-space: normal; /* allow wrapping */
+  }
+
+  .connect-skills {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .skill-icons img {
+    width: 35px;
+  }
+
+  .intro-right img {
+    max-width: 250px;
+  }
+}
+
+/* Extra small devices (phones under 480px) */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .glow-text {
+    font-size: 1.5rem;
+  }
+
+  .bio {
+    font-size: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .intro-right img {
+    max-width: 200px;
+  }
+
+  .skill-icons img {
+    width: 30px;
+  }
+}
+
+
+/* Hero text responsive fix */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 1.8rem;  /* Smaller for tablets & small laptops */
+    line-height: 1.2;   /* Tighten spacing */
+    word-break: break-word; /* Wrap long words */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.4rem;  /* Smaller for small phones */
+    line-height: 1.2;
+    white-space: normal; /* Ensure text wraps */
+  }
+}
+
+
+/* WHAT I DO SECTION */
+.what-i-do {
+  padding: 60px 20px;
+  background-color: var(--background-color); /* same as previous page */
+}
+
+.section-title {
+  color: #58a6ff; /* matches hero-text */
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 15px;
+  justify-content: center;
+  margin: 40px auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+
+
+.card {
+  background-color: #0d1117;
+  border: 2px solid #58a6ff;
+  box-shadow: 0 0 12px #58a6ff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  width: 500px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Animation on load */
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInScale 0.6s ease forwards;
+}
+
+/* Add a delay for each card for a staggered effect */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Second row with 2 centered boxes */
+.grid-container .card:nth-child(4),
+.grid-container .card:nth-child(5) {
+  grid-column: span 1;
+}
+
+/* Glow pulse on hover */
+.card:hover {
+  box-shadow: 0 0 20px #58a6ff, 0 0 40px #58a6ff;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Keyframes for fade-in + scale */
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.card .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--accent-color); /* icon matches accent */
+}
+
+.card h3 {
+  color: #58a6ff; /* card title color same as hero-text */
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-family: 'Fira Code', monospace;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #9da5b4; /* subtle grey like in hero subtext */
+}
+
+/* Force last row (2 items) to be centered */
+.grid-container::after {
+  content: "";
+  width: 300px; /* same width as a card */
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .card {
+    padding: 15px;
+  }
+  .card h3 {
+    font-size: 1rem;
+  }
+  .card p {
+    font-size: 0.85rem;
+  }
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}

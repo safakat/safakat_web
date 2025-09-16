@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev Terminal Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <div class="buttons">
+        <span class="close"></span>
+        <span class="minimize"></span>
+        <span class="maximize"></span>
+      </div>
+      <div class="title">dev@localhost: ~/login</div>
+    </div>
+
+    <div class="login-container">
+      <h1>&lt;Dev Login /&gt;</h1>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+      </form>
+      <p class="footer-text">console.log("Welcome back, dev!");</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Login Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}"  />
+</head>
+<body>
+    {% include "/portfolio/topbar.html" %}
+  <div class="login-container">
+    <h1><span>&lt;/&gt;</span> Admin Login</h1>
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="a_d_m_i_n" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="••••••••" required />
+          <button type="button" id="togglePwd" aria-label="Show password">&#128065;</button>
+        </div>
+      </div>
+      <button type="submit">Login</button>
+      <pre id="error-msg" class="console"></pre>
+    </form>
+  </div>
+  <script src="{{ url_for('static', path='/script.js') }}"></script>
+</body>
+</html>

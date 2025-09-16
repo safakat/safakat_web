@@ -1,0 +1,106 @@
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
+.intro-left {
+  max-width: 50%;
+}
+
+.small-title {
+  color: #00ff64;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.bio {
+  color: #ccc;
+  margin: 20px 0;
+}
+
+.social-links a {
+  color: #00ff64;
+  margin-right: 10px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #00e0ff;
+}
+
+.skill-icons img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Profile Image on Right Side */
+.intro-right {
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-frame img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid #00ff64;
+  box-shadow: 0 0 20px #00ff64;
+}
+
+/* Typing Cursor */
+.cursor {
+  color: #00ff64;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Glow Animation */
+.glow-text {
+  color: #00e0ff;
+  text-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff, 0 0 20px #00e0ff, 0 0 40px #00e0ff;
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff, 0 0 20px #00e0ff, 0 0 40px #00e0ff;
+  }
+  50% {
+    text-shadow: 0 0 2px #00e0ff, 0 0 5px #00e0ff, 0 0 10px #00e0ff, 0 0 20px #00e0ff;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .intro-left, .intro-right {
+    max-width: 100%;
+  }
+  .profile-frame img {
+    width: 180px;
+    height: 180px;
+    margin-top: 20px;
+  }
+}
+
+

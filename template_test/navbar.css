@@ -1,0 +1,105 @@
+/* Reset & Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+}
+
+/* Top Bar */
+.topbar {
+  background-color: #121212;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 255, 100, 0.2);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.2);
+  position: relative;
+}
+
+.logo span {
+  color: #00ff64;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px rgba(0, 255, 100, 0.6);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.nav-buttons button {
+  background-color: transparent;
+  border: 1px solid rgba(0, 255, 100, 0.3);
+  color: #00ff64;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #00ff64;
+  color: #0a0a0a;
+  box-shadow: 0 0 10px rgba(0, 255, 100, 0.6);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #00ff64;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  .nav-buttons {
+    flex-direction: column;
+    background-color: #121212;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border-left: 1px solid rgba(0, 255, 100, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 100, 0.2);
+    box-shadow: 0 0 12px rgba(0, 255, 100, 0.3);
+    
+    /* Animation properties */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .nav-buttons.active {
+    max-height: 500px; /* Large enough for all buttons */
+    transition: max-height 0.4s ease-in;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/* Keep all previous styles here */
+
+/* Typing Effect Cursor */
+.cursor {
+  color: #00ff64;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
